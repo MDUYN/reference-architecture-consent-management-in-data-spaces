@@ -1,0 +1,35 @@
+apiVersion: skaffold/v2beta1
+kind: Config
+metadata:
+  name: tno-consent-management-data-spaces
+build:
+  artifacts:
+  - image: consent-manager-frontend/latest
+    context: infrastructure/consent-manager-frontend
+  - image: data-consumer-frontend/latest
+    context: infrastructure/data-consumer-frontend
+  - image: data-provider-frontend/latest
+    context: infrastructure/data-provider-frontend
+  - image: policy-broker-frontend/latest
+    context: infrastructure/policy-broker-frontend
+  - image: policy-catalogue-frontend/latest
+    context: infrastructure/policy-catalogue-frontend
+  - image: user-management/latest
+    context: infrastructure/user-management
+deploy:
+  kubectl:
+    manifests:
+    - ingress.yaml
+    - service-addresses-configmap.yaml
+    - infrastructure/consent-manager-frontend/consent-manager-frontend-deployment.yaml
+    - infrastructure/consent-manager-frontend/consent-manager-frontend-service.yaml
+    - infrastructure/data-consumer-frontend/data-consumer-frontend-deployment.yaml
+    - infrastructure/data-consumer-frontend/data-consumer-frontend-service.yaml
+    - infrastructure/data-provider-frontend/data-provider-frontend-deployment.yaml
+    - infrastructure/data-provider-frontend/data-provider-frontend-service.yaml
+    - infrastructure/policy-broker-frontend/policy-broker-frontend-deployment.yaml
+    - infrastructure/policy-broker-frontend/policy-broker-frontend-service.yaml
+    - infrastructure/policy-catalogue-frontend/policy-catalogue-frontend-deployment.yaml
+    - infrastructure/policy-catalogue-frontend/policy-catalogue-frontend-service.yaml
+    - infrastructure/user-management/user-management-deployment.yaml
+    - infrastructure/user-management/user-management-service.yaml

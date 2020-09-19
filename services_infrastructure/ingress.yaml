@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1beta1 # for versions before 1.14 use extensions/v1beta1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /data-provider(/|$)(.*)
+        backend:
+          serviceName: user-management-service
+          servicePort: 8000
+      - path: /consent-manager(/|$)(.*)
+        backend:
+          serviceName: consent-manager-service
+          servicePort: 8000
+      # - path: /consent-manager(/|$)(.*)
+      #   backend:
+      #     serviceName: consent-manager-frontend-service
+      #     servicePort: 3000
+      # - path: /data-provider(/|$)(.*)
+      #   backend:
+      #     serviceName: data-provider-frontend-service
+      #     servicePort: 3000
+      # - path: /data-consumer(/|$)(.*)
+      #   backend:
+      #     serviceName: data-consumer-frontend-service
+      #     servicePort: 3000
+      # - path: /policy-broker(/|$)(.*)
+      #   backend:
+      #     serviceName: policy-broker-frontend-service
+      #     servicePort: 3000
+      # - path: /policy-catalogue(/|$)(.*)
+      #   backend:
+      #     serviceName: policy-catalogue-frontend-service
+      #     servicePort: 3000
+  

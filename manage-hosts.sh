@@ -9,7 +9,7 @@ ETC_HOSTS=/etc/hosts
 IP=$(minikube ip)
 
 # Hostname to add/remove.
-HOSTNAME="api.investing-algorithm-marketplace.com"
+HOSTNAME="tno_consent_management.com"
 
 
 removehost() {

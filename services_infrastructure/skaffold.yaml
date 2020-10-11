@@ -8,8 +8,6 @@ build:
     context: consent-manager
   - image: data-provider/latest
     context: data-provider
-  - image: frontend/latest
-    context: frontend
 deploy:
   kubectl:
     manifests:
@@ -17,4 +15,3 @@ deploy:
     - service-addresses-configmap.yaml
     - consent-manager/consent-manager-service.yaml
     - data-provider/data-provider-service.yaml
-    - frontend/frontend-service.yaml

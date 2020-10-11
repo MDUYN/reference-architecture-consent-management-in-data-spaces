@@ -2,130 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5afb7d54-d69e-408c-8d6b-231dfa96b00d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/extensions/swagger_specification.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/models/data_category.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/models/data_consumer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/models/policy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/models/policy_data_obligation_associations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/models/policy_data_permission_associations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/resources/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/resources/templates.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/schemas/data_obligation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/schemas/data_permission.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/schemas/policies.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/services/policy_former.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/static/swagger.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/views/data_consumer_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/app/views/policy_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/tests/test_data_obligation_listing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/tests/test_data_obligations_creation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/tests/test_data_permissions_creation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/tests/test_data_permissions_listing.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../consent-manager/tests/test_policy_former.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../data-provider/app/extensions/swagger_specification.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../data-provider/app/models/data_category.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../data-provider/app/static/swagger.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/tno_consent_management_data_spaces.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../databases_infrastructure/manifests/data-provider-cluster-deployment.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../manage-hosts.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../manage-hosts.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/__main__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/__main__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/configuration/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/configuration/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/configuration/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/configuration/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/configuration/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/configuration/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/extensions/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/extensions/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/extensions/database_resolver.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/extensions/database_resolver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/extensions/logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/extensions/logger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/models/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/models/data_obligation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/models/data_obligation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/models/data_owner.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/models/data_owner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/models/data_permission.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/models/data_permission.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/models/data_set.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/models/data_set.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/schemas/data_sets.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/schemas/data_sets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/schemas/validators.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/schemas/validators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/views/data_obligations_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/views/data_obligations_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/views/data_owner_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/views/data_owner_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/views/data_permissions_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/views/data_permissions_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/views/data_provider_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/views/data_provider_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/views/data_set_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/views/data_set_views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/consent_manager_deployment.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/consent_manager_service.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/next.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/pages/_app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/pages/_document.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/pages/about.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/pages/data-owners.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/pages/data-sets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/pages/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/public/vercel.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/Link.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/ProTip.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/components/copyright.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/layout/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/redux/actions/data_owners.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/redux/actions/data_sets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/redux/actions/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/redux/reducers/data_owner.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/redux/reducers/data_set.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/redux/reducers/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/redux/sagas/data_owner.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/redux/sagas/data_sets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/redux/sagas/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/redux/store.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/redux/types.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/resources/tno-logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/services/data_owners.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/services/data_sets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/services/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider-frontend/src/theme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/consent_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/consent_manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/data_provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/data_provider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ingress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/.dockerignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/__main__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/configuration/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/configuration/constants.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/configuration/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/configuration/setup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/extensions/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/extensions/database_resolver.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/extensions/logger.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/models/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/models/data_owner.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/models/data_owner_data_set_association.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/models/data_set.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/schemas/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/schemas/data_owner.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/schemas/data_sets.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/schemas/validators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/views/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/views/data_owner_views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/app/views/data_set_views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/ci/test.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/requirements-test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/tests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/tests/test_data_owner_creation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/tests/test_data_owner_listing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/tests/test_data_set_creation.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/tests/test_data_set_listing.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/tests/test_data_set_retrieve.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/user_management_deployment.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../user-management/user_management_service.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../skaffold.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../skaffold.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,6 +90,7 @@
       <workItem from="1601980538266" duration="2972000" />
       <workItem from="1602015312410" duration="855000" />
       <workItem from="1602368289717" duration="871000" />
+      <workItem from="1602415666017" duration="161000" />
     </task>
     <servers />
   </component>

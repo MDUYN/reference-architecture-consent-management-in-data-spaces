@@ -8,15 +8,11 @@ spec:
   rules:
     - http:
         paths:
-          - path: /data-provider/(.+)
+          - path: /api/data-provider/(.+)
             backend:
               serviceName: data-provider-service
               servicePort: 8000
-          - path: /consent-manager/(.+)
+          - path: /api/consent-manager/(.+)
             backend:
               serviceName: consent-manager-service
               servicePort: 8000
-          - path: /
-            backend:
-              serviceName: frontend-service
-              servicePort: 3000

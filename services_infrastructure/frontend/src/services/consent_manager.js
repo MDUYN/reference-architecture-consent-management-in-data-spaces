@@ -8,7 +8,7 @@ const createDataOwner = (id) => {
     }
 
     return axios.post(
-        `${baseUrl}/consent-manager/data-owners`, data
+        `${baseUrl}/api/consent-manager/data-owners`, data
     )
         .then(
             response => {
@@ -18,7 +18,7 @@ const createDataOwner = (id) => {
 };
 
 const listDataOwners = () => {
-    return axios.get(`${baseUrl}/consent-manager/data-owners`).then(response => {
+    return axios.get(`${baseUrl}/api/consent-manager/data-owners`).then(response => {
         return response.data
     });
 };
@@ -31,7 +31,7 @@ const createDataProvider = (id) => {
     }
 
     return axios.post(
-        `${baseUrl}/consent-manager/data-providers`, data
+        `${baseUrl}/api/consent-manager/data-providers`, data
     )
         .then(
             response => {
@@ -41,7 +41,7 @@ const createDataProvider = (id) => {
 };
 
 const listDataProviders = () => {
-    return axios.get(`${baseUrl}/consent-manager/data-providers`).then(response => {return response.data});
+    return axios.get(`${baseUrl}/api/consent-manager/data-providers`).then(response => {return response.data});
 };
 
 const createDataSet = (dataProviderId, dataSetId, dataCategory, dataOwners) => {
@@ -53,7 +53,7 @@ const createDataSet = (dataProviderId, dataSetId, dataCategory, dataOwners) => {
     }
 
     return axios.post(
-        `${baseUrl}/consent-manager/${dataProviderId}/data-sets`, data
+        `${baseUrl}/api/consent-manager/${dataProviderId}/data-sets`, data
     )
     .then(
         response => {
@@ -64,19 +64,19 @@ const createDataSet = (dataProviderId, dataSetId, dataCategory, dataOwners) => {
 
 
 const listDataSets = (dataProviderId) => {
-    return axios.get(`${baseUrl}/consent-manager/${dataProviderId}/data-sets`).then(response => {return response.data});
+    return axios.get(`${baseUrl}/api/consent-manager/${dataProviderId}/data-sets`).then(response => {return response.data});
 };
 
 const listDataOwnerDataSets = (dataOwnerId) => {
-    return axios.get(`${baseUrl}/consent-manager/data-owners/${dataOwnerId}/data-sets`).then(response => {return response.data});
+    return axios.get(`${baseUrl}/api/consent-manager/data-owners/${dataOwnerId}/data-sets`).then(response => {return response.data});
 };
 
 const listDataOwnerPermissions = (dataOwnerId, dataCategory) => {
-    return axios.get(`${baseUrl}/consent-manager/data-owners/${dataOwnerId}/data-permissions/${dataCategory}`).then(response => {return response.data});
+    return axios.get(`${baseUrl}/api/consent-manager/data-owners/${dataOwnerId}/data-permissions/${dataCategory}`).then(response => {return response.data});
 };
 
 const listDataOwnerObligations = (dataOwnerId, dataCategory) => {
-    return axios.get(`${baseUrl}/consent-manager/data-owners/${dataOwnerId}/data-obligations/${dataCategory}`).then(response => {return response.data});
+    return axios.get(`${baseUrl}/api/consent-manager/data-owners/${dataOwnerId}/data-obligations/${dataCategory}`).then(response => {return response.data});
 };
 
 const createDataOwnerObligation = (dataOwnerId, ruleId, attributeValue, dataCategory) => {
@@ -86,7 +86,7 @@ const createDataOwnerObligation = (dataOwnerId, ruleId, attributeValue, dataCate
         'data_category': dataCategory
     }
 
-    return axios.post(`${baseUrl}/consent-manager/data-owners/${dataOwnerId}/data-obligations`, data)
+    return axios.post(`${baseUrl}/api/consent-manager/data-owners/${dataOwnerId}/data-obligations`, data)
         .then(
             response => {
                 return response.data
@@ -101,7 +101,7 @@ const createDataOwnerPermission = (dataOwnerId, attributeId, attributeConstraint
         'data_category': dataCategory
     }
 
-    return axios.post(`${baseUrl}/consent-manager/data-owners/${dataOwnerId}/data-permissions`, data)
+    return axios.post(`${baseUrl}/api/consent-manager/data-owners/${dataOwnerId}/data-permissions`, data)
         .then(
             response => {
                 return response.data

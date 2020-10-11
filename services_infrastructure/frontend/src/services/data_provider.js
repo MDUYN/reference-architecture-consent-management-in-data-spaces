@@ -11,7 +11,7 @@ const createDataSet = (id, dataCategory, dataOwners) => {
     }
 
     return axios.post(
-        `${baseUrl}/data-provider/data-sets`, data
+        `${baseUrl}/api/data-provider/data-sets`, data
     )
         .then(
             response => {
@@ -22,7 +22,7 @@ const createDataSet = (id, dataCategory, dataOwners) => {
 };
 
 const listDataSets = () => {
-    return axios.get(`${baseUrl}/data-provider/data-sets`).then(response => {return response.data});
+    return axios.get(`${baseUrl}/api/data-provider/data-sets`).then(response => {return response.data});
 };
 
 
@@ -33,7 +33,7 @@ const createDataOwner = (id) => {
     }
 
     return axios.post(
-        `${baseUrl}/data-provider/data-owners`, data
+        `${baseUrl}/api/data-provider/data-owners`, data
     )
         .then(
             response => {
@@ -43,7 +43,7 @@ const createDataOwner = (id) => {
 };
 
 const listDataOwners = () => {
-    return axios.get(`${baseUrl}/data-provider/data-owners`).then(response => {return response.data});
+    return axios.get(`${baseUrl}/api/data-provider/data-owners`).then(response => {return response.data});
 };
 
 export const dataProviderCalls = {

@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-provider
+spec:
+  selector:
+    matchLabels:
+      app: data-provider
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: data-provider
+    spec:
+      containers:
+      - name: data-provider
+        image: data-provider/latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+        env:
+          - name: ENV
+            value: "prod"
+          - name: DATABASE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: data-provider-user.acid-services-cluster.credentials
+                key: password
+          - name: DATABASE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: data-provider-user.acid-services-cluster.credentials
+                key: username
+          - name: DATABASE_TYPE
+            value: "postgresql"
+          - name: DATABASE_NAME
+            value: "data_provider_db"
+          - name: DATABASE_HOST
+            value: "acid-services-cluster.default"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: data-provider-service
+spec:
+  selector:
+    app: data-provider
+  ports:
+  - protocol: "TCP"
+    port: 8000
+    targetPort: 5000
+  type: LoadBalancer

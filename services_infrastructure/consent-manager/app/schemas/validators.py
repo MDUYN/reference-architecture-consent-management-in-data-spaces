@@ -1,4 +1,4 @@
-from app.models import DataOwner, DataSet, DataProvider
+from app.models import DataOwner, DataSet, DataProvider, DataConsumer
 from app.exceptions import ApiException
 
 
@@ -41,6 +41,15 @@ def validate_data_owner_exist(value) -> None:
         if data_owner is None:
             raise ApiException(
                 "Data Owner id: {} does not exist".format(value))
+
+
+def validate_data_consumer_exists(value) -> None:
+    data_consumer = DataConsumer.query.filter_by(id=str(value)).first()
+
+    if data_consumer is None:
+        raise ApiException(
+            "Data consumer is not registered"
+        )
 
 
 def validate_data_provider_exist(value) -> None:

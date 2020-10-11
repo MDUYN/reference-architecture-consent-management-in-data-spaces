@@ -9,7 +9,7 @@ ETC_HOSTS=/etc/hosts
 IP=$(minikube ip)
 
 # Hostname to add/remove.
-HOSTNAME="tno_consent_management.com"
+HOSTNAME="tno-consent-management.com"
 
 
 removehost() {

@@ -1,8 +1,7 @@
 from marshmallow import Schema, fields, post_load
 from marshmallow_enum import EnumField
 
-from app.schemas.validators import validate_data_set_id, \
-    validate_data_provider_exist
+from app.schemas.validators import validate_data_set_id
 from app.models import DataSet, DataCategory, DataOwner
 from app.schemas.validators import not_blank, validate_data_owner_exist
 from app.schemas.data_owner import DataOwnerSerializer

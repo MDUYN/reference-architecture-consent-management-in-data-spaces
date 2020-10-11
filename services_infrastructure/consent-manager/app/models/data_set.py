@@ -1,17 +1,11 @@
-import enum
 from sqlalchemy import Column, String, \
     Enum as SQLAlchemyEnum, ForeignKey
 from sqlalchemy.orm import relationship
 
+from app.models.data_category import DataCategory
 from app.extensions import db
 from app.models.data_owner_data_set_association import \
     data_owner_data_set_association_table
-
-
-class DataCategory(enum.Enum):
-    energy_usage_data = 'energy_usage_data'
-    energy_generation_data = 'energy_generation_data'
-    energy_storage_data = 'energy_storage_data'
 
 
 class DataSet(db.Model):
@@ -42,6 +36,7 @@ class DataSet(db.Model):
     )
     data_provider_id = Column(String, ForeignKey('data_providers.id'))
     data_provider = relationship("DataProvider", back_populates='data_sets')
+    policies = relationship("Policy", back_populates="data_set")
 
     def __init__(self, data_set_id: str, data_category, **kwargs):
         self.id = data_set_id

@@ -30,9 +30,12 @@ class DataOwner(db.Model):
         back_populates="data_owners"
     )
 
+    permissions = relationship("DataPermission", back_populates="data_owner")
+    obligations = relationship("DataObligation", back_populates="data_owner")
+
     def __init__(self, data_owner_id: str, **kwargs):
         self.id = data_owner_id
         super(DataOwner, self).__init__(**kwargs)
 
     def __repr__(self):
-        return self._repr(id=self.id)
+        return self.repr(id=self.id)

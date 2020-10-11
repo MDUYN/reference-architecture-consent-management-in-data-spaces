@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consent-manager
+spec:
+  selector:
+    matchLabels:
+      app: consent-manager
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: consent-manager
+    spec:
+      containers:
+      - name: consent-manager
+        image: consent-manager/latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+        env:
+          - name: ENV
+            value: "prod"
+          - name: DATABASE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: consent-manager-user.acid-services-cluster.credentials
+                key: password
+          - name: DATABASE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: consent-manager-user.acid-services-cluster.credentials
+                key: username
+          - name: DATABASE_TYPE
+            value: "postgresql"
+          - name: DATABASE_NAME
+            value: "consent_manager_db"
+          - name: DATABASE_HOST
+            value: "acid-services-cluster.default"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: consent-manager-service
+spec:
+  selector:
+    app: consent-manager
+  ports:
+  - protocol: "TCP"
+    port: 8000
+    targetPort: 5000
+  type: LoadBalancer

@@ -1,0 +1,123 @@
+openapi: 3.0.1
+info:
+  title: Data Providers
+  description: 'Data provider implementation based on the reference archicitecture'
+  termsOfService: http://swagger.io/terms/
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  '/data-owners':
+    post:
+      tags:
+      - data-owners
+      summary: Create a data owner
+      operationId: createDataOwner
+      requestBody:
+        description: Data Owner object that needs to be added to the data provider
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataOwner'
+        required: true
+      responses:
+        201:
+          $ref: '#/components/responses/DataOwnerCreateResponse'
+      x-codegen-request-body-name: body
+    get:
+      tags:
+      - data-owners
+      summary: List data owners
+      operationId: listDataOwners
+      responses:
+        200:
+          $ref: '#/components/responses/ListDataOwnersResponse'
+  '/data-sets':
+    post:
+      tags:
+      - data-sets
+      summary: Create a data set
+      operationId: createDataSet
+      requestBody:
+        $ref: '#/components/requestBodies/DataSetBody'
+      responses:
+        '201':
+          $ref: '#/components/responses/DataSetCreateResponse'
+      x-codegen-request-body-name: body
+    get:
+      tags:
+      - data-sets
+      summary: List data sets
+      operationId: listDataSet
+      responses:
+        200:
+          $ref: '#/components/responses/ListDataSetsResponse'
+
+components:
+  schemas:
+    DataOwner:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    DataSet:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        data_category:
+          type: string
+          example: energy_usage_data
+        data_owners:
+          type: array
+          items:
+            type: string
+            example: 25501667-d501-48b6-80c5-9d47572eb2af
+
+  requestBodies:
+
+    DataSetBody:
+      description: The data set to be created
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataSet'
+
+  responses:
+
+    # Default responses:
+    DataOwnerCreateResponse:
+      description: The created data owner
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataOwner'
+
+    ListDataOwnersResponse:
+      description: List of data owner objects
+      content:
+        application/json:
+          schema:
+            type: "array"
+            items:
+              $ref: '#/components/schemas/DataOwner'
+
+
+    ListDataSetsResponse:
+      description: List of data set objects
+      content:
+        application/json:
+          schema:
+            type: "array"
+            items:
+              $ref: '#/components/schemas/DataSet'
+
+    DataSetCreateResponse:
+      description: The created data set
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataSet'

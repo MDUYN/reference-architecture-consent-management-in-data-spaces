@@ -8,7 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import {Typography} from "@material-ui/core";
+import {Divider, Typography} from "@material-ui/core";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
@@ -16,8 +16,15 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormLabel from '@material-ui/core/FormLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Checkbox from "@material-ui/core/Checkbox";
+import Grid from "@material-ui/core/Grid";
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Switch from '@material-ui/core/Switch';
+import Chip from "@material-ui/core/Chip";
 import {
     consentManagerListDataOwnersActions,
     consentManagerListDataOwnerDataSetsActions,
@@ -191,7 +198,65 @@ const Overview = () => {
             </Paper>}
             <br/>
             <br/>
-            {selectedDataOwner && dataSets && dataSets.length > 0 &&
+            {selectedDataOwner &&
+            <Paper className={classes.contentPaper}>
+                <Typography>Pending custom policy requests</Typography>
+                <TableContainer>
+                    <Table className={classes.table} aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell align={"left"}/>
+                                <TableCell align="left">Data Consumer ID</TableCell>
+                                <TableCell align="left">Data Set ID</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell align={"left"}>
+                                    <Checkbox/>
+                                </TableCell>
+                                <TableCell align="left">
+                                    84e51bbf-cdc5-46fb-8ef9-b4895ae44bff
+                                </TableCell>
+                                <TableCell align="left">
+                                    59df3462-3e76-4056-ac35-ad340c44a9c3
+                                </TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <br/>
+                <Grid
+                    container
+                    direction="row"
+                    justify="flex-start"
+                    alignItems="center"
+                    spacing={2}
+                >
+                    <Grid item>
+                        <Button color={"secondary"} variant={"contained"}>Accept</Button>
+                    </Grid>
+                    <Grid item>
+                        <Button color={"secondary"} variant={"contained"}>Reject</Button>
+                    </Grid>
+                </Grid>
+                <br/>
+                <Divider/>
+                <br/>
+                <Typography>Requested permissions viewer</Typography>
+                <List>
+                    <ListItem><Typography color={"secondary"}>Commercial usage:</Typography>  &nbsp; True</ListItem>
+                </List>
+                <br/>
+                <Typography>Requested obligations view</Typography>
+                <List>
+                    <ListItem><Typography color={"secondary"}>Delete after a month:</Typography>  &nbsp; True</ListItem>
+                </List>
+            </Paper>
+            }
+            <br/>
+            <br/>
+            {selectedDataOwner &&
             <Paper className={classes.contentPaper}>
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Define Global Permissions</FormLabel>
@@ -233,7 +298,7 @@ const Overview = () => {
             }
             <br/>
             <br/>
-            {selectedDataOwner && dataSets && dataSets.length > 0 &&
+            {selectedDataOwner &&
             <Paper className={classes.contentPaper}>
                 <FormControl component="fieldset">
                     <FormLabel component="legend">Define Global Obligations</FormLabel>

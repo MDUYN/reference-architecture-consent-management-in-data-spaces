@@ -8,12 +8,6 @@ import Grid from "@material-ui/core/Grid";
 import tno_logo from '../resources/tno-logo.png'
 import Typography from "@material-ui/core/Typography";
 import AppBar from "@material-ui/core/AppBar";
-import Paper from "@material-ui/core/Paper";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import List from "@material-ui/core/List";
-import {useRouter} from "next/router";
-import Link from "../Link";
 import SubHeaderContent from "./SubHeaderContent";
 import {SideNavContent} from "./SideNavContent";
 

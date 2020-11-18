@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useSelector, useDispatch} from "react-redux";
+import {connect} from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';

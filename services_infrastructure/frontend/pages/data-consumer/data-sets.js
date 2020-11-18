@@ -8,20 +8,25 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import {consentManagerListDataProvidersActions, consentManagerListDataSetsActions} from "../../src/redux/actions";
 import {Typography} from "@material-ui/core";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Button from "@material-ui/core/Button";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
+import ReactJson from 'react-json-view'
 
-const listConsentManagerDataSetsEffect = () => {
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(consentManagerListDataSetsActions.request());
-    }, [])
+const policy = {
+    "@context": "http://www.w3.org/ns/odrl.jsonld",
+    "uid": "http://example.com/policy:00a6501e-56e5-46f8-9cd2-1ba2d498d8f3",
+    "permission": [{
+        "target": "http://example.com/b31da16a-4052-4fc1-9ca1-6236103d12b9",
+        "assignee": "dfcaf6a6-27c0-41fd-a0e5-7d112d3ed653",
+        "action": "read",
+        "constraint": [{
+            "operator": "eq",
+            "dateTime": "P30D"
+        }]
+    }]
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -42,40 +47,74 @@ const useStyles = makeStyles((theme) => ({
 
 const Overview = () => {
     const classes = useStyles();
-    const dataProviders = useSelector(state => state.consentManager.dataProviders.items);
-    const dataSets = useSelector(state => state.consentManager.dataSets.items);
-    const [selectedDataSet, setSelectedDataset] = React.useState('');
-    const dispatch = useDispatch();
-
-    listConsentManagerDataSetsEffect();
-
-    const handleDataSetChange = (event) => {
-        setSelectedDataset(event.target.value);
-    };
 
     return (
         <>
             <br/>
             <br/>
             <Paper style={{padding: 10}}>
-                <Typography>Available Data Sets</Typography>
+                <Typography>Data Sets</Typography>
+                <TableContainer>
+                    <Table className={classes.table} aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell/>
+                                <TableCell align="left">Data Set ID</TableCell>
+                                <TableCell align="left">Obtained at</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell>
+                                    <Checkbox/>
+                                </TableCell>
+                                <TableCell align="left">
+                                    b31da16a-4052-4fc1-9ca1-6236103d12b9
+                                </TableCell>
+                                <TableCell align="left">
+                                    03-10-2020
+                                </TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </Paper>
+            <br/>
+            <br/>
+            <Paper style={{padding: 10}}>
+                <Typography>Permissions of data set b31da16a-4052-4fc1-9ca1-6236103d12b9</Typography>
+                <FormGroup>
+                    <FormControlLabel
+                        control={<Switch checked name="researchPermission"/>}
+                        label="Allow research usage"
+                    />
+                    <FormControlLabel
+                        control={<Switch checked name="commercialPermission"/>}
+                        label="Allow commercial usage"
+                    />
+                </FormGroup>
+            </Paper>
+            <br/>
+            <br/>
+            <Paper style={{padding: 10}}>
+                <Typography>Obligations of data set b31da16a-4052-4fc1-9ca1-6236103d12b9</Typography>
+                <FormGroup>
+                    <FormControlLabel
+                        control={<Switch checked name="deleteAfterAWeekObligation"/>}
+                        label="Delete after a week"
+                    />
+                    <FormControlLabel
+                        control={<Switch checked={false} name="deleteAfterAMonthObligation"/>}
+                        label="Delete after a month"
+                    />
+                </FormGroup>
+            </Paper>
+            <br/>
+            <br/>
+            <Paper style={{padding: 10}}>
+                <Typography>Raw policy</Typography>
                 <br/>
-                <FormControl className={classes.formControl}>
-                    <InputLabel id="demo-simple-select-label">Data Provider</InputLabel>
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={selectedDataSet}
-                        onChange={handleDataSetChange}
-                    >
-                        {dataSets.map((dataSet) =>
-                            <MenuItem value={dataSet.id}>{dataSet.id}</MenuItem>
-                        )}
-                    </Select>
-                </FormControl>
-                <br/>
-                <br/>
-                <Button variant={"contained"}>Request Policy</Button>
+                <ReactJson src={policy} />
             </Paper>
         </>
     )

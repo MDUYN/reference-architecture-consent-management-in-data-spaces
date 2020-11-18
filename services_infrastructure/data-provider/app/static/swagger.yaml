@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Data Providers
-  description: 'Data provider implementation based on the reference archicitecture'
+  description: 'Data provider implementation based on the reference architecture'
   termsOfService: http://swagger.io/terms/
   version: 1.0.0
 servers:
@@ -10,7 +10,7 @@ paths:
   '/data-owners':
     post:
       tags:
-      - data-owners
+      - data owner services
       summary: Create a data owner
       operationId: createDataOwner
       requestBody:
@@ -26,7 +26,7 @@ paths:
       x-codegen-request-body-name: body
     get:
       tags:
-      - data-owners
+      - data owner services
       summary: List data owners
       operationId: listDataOwners
       responses:
@@ -35,7 +35,7 @@ paths:
   '/data-sets':
     post:
       tags:
-      - data-sets
+      - data set services
       summary: Create a data set
       operationId: createDataSet
       requestBody:
@@ -46,12 +46,35 @@ paths:
       x-codegen-request-body-name: body
     get:
       tags:
-      - data-sets
+      - data set services
       summary: List data sets
       operationId: listDataSet
       responses:
         200:
           $ref: '#/components/responses/ListDataSetsResponse'
+
+
+  '/data-sets/{dataSetId}/policy/{policyId}':
+    get:
+      tags:
+        - data set services
+      parameters:
+        - in: path
+          name: dataSetId
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: policyId
+          schema:
+            type: string
+          required: true
+      summary: Retrieve a data set with an obtained policy
+      operationId: retrieveDataSet
+      responses:
+          200:
+            $ref: '#/components/responses/ListDataSetsResponse'
+
 
 components:
   schemas:

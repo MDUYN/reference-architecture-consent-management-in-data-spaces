@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5afb7d54-d69e-408c-8d6b-231dfa96b00d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pages/policy-broker/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/policy-catalogue.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../consent-manager/app/static/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/static/swagger.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data-provider/app/static/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../data-provider/app/static/swagger.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/consent_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/consent_manager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/data_provider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/data_provider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../ingress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../skaffold.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../skaffold.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/consent-manager/data-owners.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/consent-manager/data-owners.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/data-consumer/data-sets.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/data-consumer/data-sets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/data-consumer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/data-consumer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/data-provider/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/data-provider/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/SideNavContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/SideNavContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/SubHeaderContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/SubHeaderContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +99,15 @@
       <workItem from="1602015312410" duration="855000" />
       <workItem from="1602368289717" duration="871000" />
       <workItem from="1602415666017" duration="161000" />
+      <workItem from="1602520821524" duration="1000" />
+      <workItem from="1603021345847" duration="612000" />
+      <workItem from="1603037393069" duration="10542000" />
+      <workItem from="1603105818123" duration="655000" />
+      <workItem from="1603139334336" duration="3943000" />
+      <workItem from="1603189051587" duration="126000" />
+      <workItem from="1603191248423" duration="242000" />
+      <workItem from="1603191499715" duration="239000" />
+      <workItem from="1604239696761" duration="1934000" />
     </task>
     <servers />
   </component>
@@ -98,12 +115,12 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2655" y="290" width="424" height="484" key="FileChooserDialogImpl" timestamp="1601990108125">
+    <state x="2655" y="290" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603191736181">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2655" y="290" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1601990108125" />
+    <state x="2655" y="290" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603191736181" />
     <state x="4575" y="290" key="FileChooserDialogImpl/67.27.1853.1053/3840.0.1920.1080/1920.0.1920.1080@3840.0.1920.1080" timestamp="1600289750321" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/3840.0.1920.1080/1920.0.1920.1080@67.27.1853.1053" timestamp="1601979717978" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/3840.0.1920.1080/1920.0.1920.1080@67.27.1853.1053" timestamp="1603022928055" />
     <state width="1830" height="154" key="GridCell.Tab.0.bottom" timestamp="1599947824040">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

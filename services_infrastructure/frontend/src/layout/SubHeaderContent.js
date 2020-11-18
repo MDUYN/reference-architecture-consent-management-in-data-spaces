@@ -50,6 +50,10 @@ const SubHeaderContent = () => {
             return 1;
         } else if(pathname.includes('/data-consumer')) {
             return 2;
+        } else if(pathname.includes('/data-consumer')) {
+            return 3;
+        } else if(pathname.includes('/policy-broker')) {
+            return 4;
         }
         return 0;
     }
@@ -65,6 +69,10 @@ const SubHeaderContent = () => {
             router.push('/consent-manager');
         } else if(newValue === 2) {
             router.push('/data-consumer');
+        } else if(newValue === 3) {
+            router.push('/policy-catalogue');
+        } else if(newValue === 4) {
+            router.push('/policy-broker')
         }
     };
 
@@ -85,6 +93,8 @@ const SubHeaderContent = () => {
                         <CustomTabSecondary label="Data Provider" {...a11yProps(0)} />
                         <CustomTabSecondary label="Consent Manager" {...a11yProps(1)} />
                         <CustomTabSecondary label="Data Consumer" {...a11yProps(2)} />
+                        <CustomTabSecondary label="Policy Catalogue" {...a11yProps(3)}/>
+                        <CustomTabSecondary label="Policy Broker" {...a11yProps(4)}/>
                     </CustomTabsSecondary>
                 </Grid>
             </Grid>

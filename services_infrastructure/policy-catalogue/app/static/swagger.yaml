@@ -1,187 +1,18 @@
 openapi: 3.0.1
 info:
   title: Data Providers
-  description: 'Data provider implementation based on the reference architecture'
+  description: 'Data provider implementation based on the reference archicitecture'
   termsOfService: http://swagger.io/terms/
   version: 1.0.0
 servers:
 - url: /
 
 paths:
-  '/data-owners':
+  '/policies/data-provider/{dataProviderId}/data-set/{dataSetId}/data-consumer/{dataConsumerId}':
     post:
-      tags:
-      - data owner services
-      summary: Register a data owner
-      operationId: createDataOwner
-      requestBody:
-        description: Data Owner object that needs to be added to the data provider
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DataOwner'
-        required: true
-      responses:
-        201:
-          $ref: '#/components/responses/DataOwnerCreateResponse'
-      x-codegen-request-body-name: body
-    get:
-      tags:
-      - data owner services
-      summary: List data owners
-      operationId: listDataOwners
-      responses:
-        200:
-          $ref: '#/components/responses/ListDataOwnersResponse'
-  '/{dataProdiderId}/data-sets':
-    post:
-      tags:
-      - data set services
-      summary: Register a data set
-      parameters:
-        - in: path
-          name: dataProdiderId
-          schema:
-            type: string
-          required: true
-      operationId: createDataSet
-      requestBody:
-        $ref: '#/components/requestBodies/DataSetBody'
-      responses:
-        '201':
-          $ref: '#/components/responses/DataSetCreateResponse'
-      x-codegen-request-body-name: body
-    get:
-      tags:
-      - data set services
-      summary: List data sets
-      parameters:
-      - in: path
-        name: dataProdiderId
-        schema:
-          type: string
-        required: true
-      operationId: listDataSet
-      responses:
-        200:
-          $ref: '#/components/responses/ListDataSetsResponse'
-  '/data-owners/{dataOwnerId}/data-sets':
-    get:
-        tags:
-        - data set services
-        summary: List data owner data sets
-        parameters:
-        - in: path
-          name: dataOwnerId
-          schema:
-            type: string
-          required: true
-        operationId: listDataOwnerDataSets
-        responses:
-          200:
-            $ref: '#/components/responses/ListDataSetsResponse'
-
-  '/data-providers/':
-    get:
-      tags:
-      - data providers services
-      summary: List data providers
-      operationId: listDataProviders
-      responses:
-        200:
-          $ref: '#/components/responses/ListDataProviderResponse'
-    post:
-      tags:
-        - data providers services
-      summary: Register a data provider
-      operationId: registerDataProvider
-      requestBody:
-        $ref: '#/components/requestBodies/DataProviderBody'
-      responses:
-          200:
-            $ref: '#/components/responses/RegisterDataProviderResponse'
-
-  '/data-owners/{dataOwnerId}/data-permissions':
-    post:
-      tags:
-          - data permission services
-      summary: Register a data permission
-      parameters:
-        - in: path
-          name: dataOwnerId
-          schema:
-            type: string
-          required: true
-      operationId: registerDataOwnerPermission
-      requestBody:
-        $ref: '#/components/requestBodies/DataPermissionBody'
-      responses:
-          200:
-            $ref: '#/components/responses/CreateDataPermissionResponse'
-
-  '/data-owners/{dataOwnerId}/data-permissions/{dataCategory}':
-    get:
-      tags:
-          - data permission services
-      summary: List all data permissions for a data category
-      parameters:
-        - in: path
-          name: dataOwnerId
-          schema:
-            type: string
-          required: true
-        - in: path
-          name: dataCategory
-          schema:
-            type: string
-          required: true
-      operationId: listDataOwnerPermissions
-      responses:
-          200:
-            $ref: '#/components/responses/ListDataPermissionsResponse'
-
-  '/data-owners/{dataOwnerId}/data-obligations':
-    post:
-      tags:
-          - data obligations services
-      summary: Register a data permission
-      parameters:
-        - in: path
-          name: dataOwnerId
-          schema:
-            type: string
-          required: true
-      operationId: registerDataOwnerObligation
-      requestBody:
-        $ref: '#/components/requestBodies/DataObligationBody'
-      responses:
-          200:
-            $ref: '#/components/responses/CreateDataObligationResponse'
-  '/data-owners/{dataOwnerId}/data-obligations/{dataCategory}':
-    get:
-      tags:
-        - data obligations services
-      summary: List all data obligations for a data category
-      parameters:
-        - in: path
-          name: dataOwnerId
-          schema:
-            type: string
-          required: true
-        - in: path
-          name: dataCategory
-          schema:
-            type: string
-          required: true
-      operationId: listDataOwnerObligations
-      responses:
-          200:
-            $ref: '#/components/responses/ListDataObligationsResponse'
-  '/policy/{dataProviderId}/data-sets/{dataSetId}':
-    post:
-      tags:
+      tags: 
         - data policy services
-      summary: Create policy request
+      summary: Create data policy
       parameters:
         - in: path
           name: dataProviderId
@@ -193,20 +24,53 @@ paths:
           schema:
             type: string
           required: true
-      operationId: requestDataPolicy
+        - in: path
+          name: dataConsumerId
+          schema:
+            type: string
+          required: true
+      operationId: createDataPolicy
       requestBody:
-        $ref: '#/components/requestBodies/RequestDataPolicyBody'
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                policy:
+                  type: string
+                  format: binary
       responses:
-          200:
-            $ref: '#/components/responses/RequestDataPolicyResponse'
-  '/policy/{policyId}':
+        '200':
+          description: OK
+
+  '/policies/{dataConsumerId}/data-set/{dataSetId}':
     get:
       tags:
         - data policy services
-      summary: Get the status of a policy request
+      summary: Retrieve policies
       parameters:
         - in: path
-          name: policyId
+          name: dataConsumerId
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: dataSetId
+          schema:
+            type: string
+          required: true
+      operationId: requestDataPolicy
+      responses:
+          200:
+            $ref: '#/components/responses/DataPolicyResponse'
+  '/policies/{dataSetId}':
+    delete:
+      tags:
+        - data policy services
+      summary: Delete all policies belonging to a specific data set
+      parameters:
+        - in: path
+          name: dataSetId
           schema:
             type: string
           required: true
@@ -214,22 +78,6 @@ paths:
       responses:
           200:
             $ref: '#/components/responses/RequestDataPolicyStatusResponse'
-    put:
-      tags:
-        - data policy services
-      summary: Accept or reject custom policy request
-      parameters:
-      - in: path
-        name: policyId
-        schema:
-          type: string
-        required: true
-      operationId: UpodateDataPolicyRequestStatus
-      requestBody:
-        $ref: '#/components/requestBodies/AcceptRejectRequestDataPolicyBody'
-      responses:
-        200:
-          $ref: '#/components/responses/RequestDataPolicyStatusResponse'
 
 components:
   schemas:
@@ -278,6 +126,14 @@ components:
           type: string
         data_category:
           type: string
+          
+    DataPolicy:
+      type: object
+      properties:
+        policy_id: 
+          type: string
+          format: UUID
+        
 
   requestBodies:
 
@@ -330,7 +186,7 @@ components:
                 type: "array"
                 items:
                   $ref: '#/components/schemas/DataObligation'
-
+                  
     AcceptRejectRequestDataPolicyBody:
        content:
         application/json:
@@ -340,11 +196,27 @@ components:
               data_owner_id:
                 type: "string"
                 format: UUID
-              accept:
+              accept: 
                 type: "boolean"
-
+                  
 
   responses:
+    
+    DataPolicyResponse:
+      description: Response of data policy
+      content:
+        application/xml:
+          schema:
+            type: string
+            format: binary
+    
+    StoreDataPolicyResponse:
+      description: Response of storing a data policy
+      content:
+        application/pdf:
+          schema:
+            type: string
+            format: binary
 
     # Default responses:
     DataOwnerCreateResponse:
@@ -453,3 +325,4 @@ components:
                 type: string
               policy_catalogue:
                 type: string
+

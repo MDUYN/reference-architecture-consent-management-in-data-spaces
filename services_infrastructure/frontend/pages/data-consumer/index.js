@@ -9,11 +9,19 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import {consentManagerListDataProvidersActions, consentManagerListDataSetsActions} from "../../src/redux/actions";
-import {Typography} from "@material-ui/core";
+import {Divider, Typography} from "@material-ui/core";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
+import Checkbox from "@material-ui/core/Checkbox";
+import Button from "@material-ui/core/Button";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Switch from "@material-ui/core/Switch";
+import Grid from "@material-ui/core/Grid";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
 
 const listConsentManagerDataProvidersEffect = () => {
     const dispatch = useDispatch()
@@ -58,9 +66,10 @@ const Overview = () => {
             <br/>
             <br/>
             <Paper style={{padding: 10}}>
-                <Typography>Data Providers</Typography>
+                <Typography>Available Data Providers</Typography>
                 <br/>
-                <Typography>There are currently {dataProviders.length} data providers registered</Typography>
+                <Typography>There is currently {dataProviders.length} data provider available</Typography>
+                <br/>
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-simple-select-label">Data Provider</InputLabel>
                     <Select
@@ -79,11 +88,12 @@ const Overview = () => {
             <br/>
             {selectedDataProvider && dataSets && dataSets.length > 0 &&
             <Paper style={{padding: 10}}>
-                <Typography>Data Sets</Typography>
+                <Typography>Available Data Sets</Typography>
                 <TableContainer>
                     <Table className={classes.table} aria-label="simple table">
                         <TableHead>
                             <TableRow>
+                                <TableCell/>
                                 <TableCell align="left">Data Set ID</TableCell>
                                 <TableCell align="left">Data Category</TableCell>
                                 <TableCell align="left">Amount of Owners</TableCell>
@@ -93,6 +103,9 @@ const Overview = () => {
                         <TableBody>
                             {dataSets.map((row) => (
                                 <TableRow key={row.id}>
+                                    <TableCell>
+                                        <Checkbox/>
+                                    </TableCell>
                                     <TableCell align="left">
                                         {row.id}
                                     </TableCell>
@@ -108,6 +121,69 @@ const Overview = () => {
                         }
                     </Table>
                 </TableContainer>
+                <br/>
+                <Typography>Default Permissions</Typography>
+                <br/>
+                <List>
+                    <ListItem><Typography color={"secondary"}>Commercial usage:</Typography>  &nbsp; True</ListItem>
+                    <ListItem><Typography color={"secondary"}>Research usage:</Typography>  &nbsp; True</ListItem>
+                </List>
+                <br/>
+                <Typography>Default Obligations</Typography>
+                <br/>
+                <List>
+                    <ListItem><Typography color={"secondary"}>Delete after week:</Typography>  &nbsp; True</ListItem>
+                    <ListItem><Typography color={"secondary"}>Delete after a month:</Typography>  &nbsp; false</ListItem>
+                </List>
+                <br/>
+                <Divider/>
+                <br/>
+                <Typography>Custom policy request</Typography>
+                <br/>
+                <Typography>Define custom permission</Typography>
+                <br/>
+                <FormGroup>
+                    <FormControlLabel
+                        control={<Switch checked={false} name="researchPermission"/>}
+                        label="Allow research usage"
+                    />
+                    <FormControlLabel
+                        control={<Switch checked={false} name="commercialPermission"/>}
+                        label="Allow commercial usage"
+                    />
+                </FormGroup>
+                <br/>
+                <br/>
+                <Typography>Define custom obligation</Typography>
+                <br/>
+                <FormGroup>
+                    <FormControlLabel
+                        control={<Switch checked={false} name="deleteAfterAWeekObligation"/>}
+                        label="Delete after a week"
+                    />
+                    <FormControlLabel
+                        control={<Switch checked={false} name="deleteAfterAMonthObligation"/>}
+                        label="Delete after a month"
+                    />
+                </FormGroup>
+                <br/>
+                <Grid
+                    container
+                    direction="row"
+                    justify="flex-start"
+                    alignItems="flex-start"
+                    spacing={2}
+                >
+                    <Grid item>
+                        <Button variant={"contained"}>Request policy</Button>
+                    </Grid>
+                    <Grid item>
+                        <Button variant={"contained"}>Request custom policy</Button>
+                    </Grid>
+                </Grid>
+
+                <br/>
+
             </Paper>
             }
         </>

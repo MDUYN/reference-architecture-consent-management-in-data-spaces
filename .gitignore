@@ -177,3 +177,5 @@ dmypy.json
 *.iml
 *out
 *gen
+
+/postgres_operator

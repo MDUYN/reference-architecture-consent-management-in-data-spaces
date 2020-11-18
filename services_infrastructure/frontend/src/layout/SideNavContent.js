@@ -81,7 +81,7 @@ const ConsentManagerSideNavContent = () => {
                 }
             >
                 <ListItemText>
-                  Overview
+                  Data Providers
                 </ListItemText>
             </ListItem>
             <ListItem
@@ -114,7 +114,7 @@ const DataConsumerSideNavContent = () => {
                 }
             >
                 <ListItemText>
-                    Overview
+                    Data Providers
                 </ListItemText>
             </ListItem>
             <ListItem
@@ -146,7 +146,9 @@ export const SideNavContent = () => {
         return <DataProviderSideNavContent/>
     } else if(router.pathname.includes('consent-manager')) {
         return <ConsentManagerSideNavContent/>
-    } else {
+    } else if(router.pathname.includes('data-consumer')) {
         return <DataConsumerSideNavContent/>
+    } else {
+        return null
     }
 }

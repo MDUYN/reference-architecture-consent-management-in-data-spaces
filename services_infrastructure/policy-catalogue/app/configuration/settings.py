@@ -132,25 +132,6 @@ class DevConfig(Config):
     ORGANIZATION_SERVICE_ADDRESS = os.environ.get(
         ORGANIZATION_SERVICE_ADDRESS, '127.0.0.1:7050'
     )
-    AWS_S3_ACCESS_KEY = os.environ.get(
-        AWS_S3_ACCESS_KEY, 'AKIARBYC2GPTBELR7DWH'
-    )
-    AWS_S3_SECRET = os.environ.get(
-        AWS_S3_SECRET, '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'
-    )
-    AWS_S3_ACCESS_KEY = os.environ.get(
-        AWS_S3_ACCESS_KEY, 'AKIARBYC2GPTBELR7DWH'
-    )
-    AWS_S3_SECRET = os.environ.get(
-        AWS_S3_SECRET, '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'
-    )
-    AWS_S3_IMAGES_BUCKET = os.environ.get(
-        AWS_S3_IMAGES_BUCKET,
-        'investing-algorithm-marketplace-images'
-    )
-    AWS_S3_IMAGES_BUCKET_FOLDER = os.environ.get(
-        AWS_S3_IMAGES_BUCKET_FOLDER, 'demo_images/'
-    )
 
 
 class TestConfig(Config):
@@ -166,16 +147,3 @@ class TestConfig(Config):
         'DATABASE_TYPE': 'sqlite3',
         'DATABASE_DIRECTORY_PATH': BASE_DIR
     }
-    AWS_S3_ACCESS_KEY = os.environ.get(
-        AWS_S3_ACCESS_KEY, 'AKIARBYC2GPTBELR7DWH'
-    )
-    AWS_S3_SECRET = os.environ.get(
-        AWS_S3_SECRET, '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'
-    )
-    AWS_S3_IMAGES_BUCKET = os.environ.get(
-        AWS_S3_IMAGES_BUCKET,
-        'investing-algorithm-marketplace-images'
-    )
-    AWS_S3_IMAGES_BUCKET_FOLDER = os.environ.get(
-        AWS_S3_IMAGES_BUCKET_FOLDER, 'demo_images/'
-    )

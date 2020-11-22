@@ -1,0 +1,319 @@
+openapi: 3.0.1
+info:
+  title: Data Consumer
+  description: 'Data provider implementation based on the reference archicitecture'
+  termsOfService: http://swagger.io/terms/
+  version: 1.0.0
+servers:
+- url: /
+
+paths:
+  '/data-provider/{dataProviderId}/data-set/{dataSetId}':
+    get:
+      tags: 
+        - data policy services
+      summary: Request a policy for a data set 
+      parameters:
+        - in: path
+          name: dataProviderId
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: dataSetId
+          schema:
+            type: string
+          required: true
+      operationId: createDataPolicy
+      responses:
+        '200':
+          description: OK
+  '/policies/{dataSetId}/':
+    get:
+      tags: 
+        - data policy services
+      summary: Retrieve a policy that the data consumer has obtained
+      parameters:
+        - in: path
+          name: dataSetId
+          schema:
+            type: string
+          required: true
+      operationId: retrievePolicy
+      responses:
+        '200':
+          description: OK
+  '/data-sets/{dataSetId}':
+    delete:
+      tags:
+        - data set services
+      parameters: 
+      - in: path
+        name: dataSetId
+        schema:
+          type: string
+        required: true
+      
+      summary: Delete access to a specific data set
+      operationId: createDataSet
+      responses:
+        '201':
+          $ref: '#/components/responses/DataSetCreateResponse'
+      x-codegen-request-body-name: body
+  '/data-sets':
+    get:
+      tags:
+        - data set services
+      summary: list all data sets the data consumer has access to
+      operationId: listDataSet
+      responses:
+        200:
+          $ref: '#/components/responses/ListDataSetsResponse'
+
+components:
+  schemas:
+    DataOwner:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    DataSet:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        data_category:
+          type: string
+          example: energy_usage_data
+        data_owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataOwner'
+    DataProvider:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+
+    DataPermission:
+      type: object
+      properties:
+        attribute_id:
+          type: string
+        attribute_constraint:
+          type: string
+        data_category:
+          type: string
+
+    DataObligation:
+      type: object
+      properties:
+        attribute_id:
+          type: string
+        attribute_constraint:
+          type: string
+        data_category:
+          type: string
+          
+    DataPolicy:
+      type: object
+      properties:
+        policy_id: 
+          type: string
+          format: UUID
+        
+
+  requestBodies:
+
+    DataSetBody:
+      description: The data set to be registered
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataSet'
+    DataProviderBody:
+      description: The provider to be registered
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataProvider'
+    DataPermissionBody:
+      description: The data permission to be created
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataPermission'
+
+    DataObligationBody:
+      description: "The data obligation to be created"
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataObligation'
+
+    RequestDataPolicyBody:
+      description: "A policy request"
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data_consumer_id:
+                type: "string"
+                format: UUID
+              data_permissions:
+                type: "array"
+                items:
+                  $ref: '#/components/schemas/DataPermission'
+              data_obligations:
+                type: "array"
+                items:
+                  $ref: '#/components/schemas/DataObligation'
+                  
+    AcceptRejectRequestDataPolicyBody:
+       content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              data_owner_id:
+                type: "string"
+                format: UUID
+              accept: 
+                type: "boolean"
+                  
+
+  responses:
+    
+    DataPolicyResponse:
+      description: Response of data policy
+      content:
+        application/xml:
+          schema:
+            type: string
+            format: binary
+    
+    StoreDataPolicyResponse:
+      description: Response of storing a data policy
+      content:
+        application/pdf:
+          schema:
+            type: string
+            format: binary
+
+    # Default responses:
+    DataOwnerCreateResponse:
+      description: The created data owner
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataOwner'
+
+    ListDataOwnersResponse:
+      description: List of data owner objects
+      content:
+        application/json:
+          schema:
+            type: "array"
+            items:
+              $ref: '#/components/schemas/DataOwner'
+
+    ListDataSetsResponse:
+      description: List of data set objects
+      content:
+        application/json:
+          schema:
+            type: "array"
+            items:
+              $ref: '#/components/schemas/DataSet'
+
+    DataSetCreateResponse:
+      description: The created data set
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataSet'
+
+    ListDataProviderResponse:
+      description: List of data providers
+      content:
+        application/json:
+          schema:
+            type: "array"
+            items:
+              $ref: '#/components/schemas/DataProvider'
+
+    ListDataPermissionsResponse:
+      description: List data permissions
+      content:
+        application/json:
+          schema:
+            type: "array"
+            items:
+              $ref: '#/components/schemas/DataPermission'
+
+    ListDataObligationsResponse:
+      description: List data obligations
+      content:
+        application/json:
+          schema:
+            type: "array"
+            items:
+              $ref: '#/components/schemas/DataObligation'
+
+    RegisterDataProviderResponse:
+      description: The registered data provider
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataProvider'
+
+    CreateDataPermissionResponse:
+      description: The created data permission
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataPermission'
+
+    CreateDataObligationResponse:
+      description: The created data obligation
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/DataObligation'
+    RequestDataPolicyResponse:
+      description: A policy request response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              policyId:
+                type: string
+                format: UUID
+              status:
+                type: string
+              policy_catalogue:
+                type: string
+                format: UUID
+
+    RequestDataPolicyStatusResponse:
+      description: A policy request status
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+              policy_catalogue:
+                type: string
+

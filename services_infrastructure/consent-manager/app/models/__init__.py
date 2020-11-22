@@ -6,6 +6,9 @@ from .data_obligation import DataObligation
 from .data_consumer import DataConsumer
 from .data_category import DataCategory
 from .policy import Policy
+from .policy_request import PolicyRequest
+from .policy_request_data_obligations import PolicyRequestDataObligation
+from .policy_request_data_permissions import PolicyRequestDataPermission
 
 __all__ = [
     'Policy',
@@ -15,5 +18,8 @@ __all__ = [
     'DataProvider',
     'DataPermission',
     'DataObligation',
-    'DataConsumer'
+    'DataConsumer',
+    'PolicyRequest',
+    'PolicyRequestDataObligation',
+    'PolicyRequestDataPermission'
 ]

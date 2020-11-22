@@ -13,6 +13,7 @@ from app.configuration.constants import ENVIRONMENT, LOG_LEVEL
 from app.exceptions import ApiException, ClientException
 from app.extensions import setup_logging
 from app.views.policy_views import blueprint as policy_blueprint
+from app.configuration.settings import POLICIES_DIR
 
 logger = logging.getLogger(__name__)
 
@@ -49,6 +50,9 @@ def create_app(config_object=DevConfig) -> Flask:
 
     # Register error handler
     register_error_handlers(app)
+
+    if not os.path.isdir(POLICIES_DIR):
+        os.mkdir(POLICIES_DIR)
 
     logger.info(
         "Running in {} configuration".format(app.config.get(ENVIRONMENT))

@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5afb7d54-d69e-408c-8d6b-231dfa96b00d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pages/policy-broker/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/policy-catalogue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../consent-manager/app/static/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../consent-manager/app/static/swagger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data-provider/app/static/swagger.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../data-provider/app/static/swagger.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/consent-manager/data-owners.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/consent-manager/data-owners.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/data-consumer/data-sets.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/data-consumer/data-sets.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/data-consumer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/data-consumer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/data-provider/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/data-provider/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/SideNavContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/SideNavContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/SubHeaderContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/SubHeaderContent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="5afb7d54-d69e-408c-8d6b-231dfa96b00d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +26,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../investing-algorithm-marketplace/service-infrastructure/frontend" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -108,6 +93,7 @@
       <workItem from="1603191248423" duration="242000" />
       <workItem from="1603191499715" duration="239000" />
       <workItem from="1604239696761" duration="1934000" />
+      <workItem from="1605866627728" duration="75000" />
     </task>
     <servers />
   </component>
@@ -115,12 +101,12 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2655" y="290" width="424" height="484" key="FileChooserDialogImpl" timestamp="1603191736181">
-      <screen x="1920" y="0" width="1920" height="1080" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1605866697770">
+      <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="2655" y="290" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/3840.0.1920.1080/1920.0.1920.1080@1920.0.1920.1080" timestamp="1603191736181" />
     <state x="4575" y="290" key="FileChooserDialogImpl/67.27.1853.1053/3840.0.1920.1080/1920.0.1920.1080@3840.0.1920.1080" timestamp="1600289750321" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/3840.0.1920.1080/1920.0.1920.1080@67.27.1853.1053" timestamp="1603022928055" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/3840.0.1920.1080/1920.0.1920.1080@67.27.1853.1053" timestamp="1605866697770" />
     <state width="1830" height="154" key="GridCell.Tab.0.bottom" timestamp="1599947824040">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>

@@ -13,7 +13,7 @@ class TestBase(TestCase):
 
     def setUp(self) -> None:
         self.postgresql = testing.postgresql.Postgresql()
-        db.configure(database_url=self.postgresql.url())
+        db.configure_with_url(self.postgresql.url())
         db.initialize_tables()
 
     def tearDown(self) -> None:

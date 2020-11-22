@@ -14,8 +14,7 @@ class Policy(db.Model):
     id = Column(Integer, primary_key=True)
     data_set_id = Column(String, ForeignKey('data_sets.id'))
     data_set = relationship("DataSet", back_populates='policies')
-    data_consumer_id = Column(String, ForeignKey('data_consumers.id'))
-    data_consumer = relationship("DataConsumer", back_populates='policies')
+
     permissions = relationship(
         'DataPermission',
         secondary=policy_data_permission_association_table,

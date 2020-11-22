@@ -6,7 +6,8 @@ from pathlib import Path
 
 from app.exceptions import OperationalException
 from app.configuration.constants import DATABASE_HOST, DATABASE_NAME, \
-    DATABASE_TYPE, DATABASE_PASSWORD, DATABASE_USERNAME
+    DATABASE_TYPE, DATABASE_PASSWORD, DATABASE_USERNAME, \
+    DATA_CONSUMER_SERVICE_ADDRESS
 
 BASE_DIR = str(Path(__file__).parent.parent.parent)
 PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
@@ -80,6 +81,7 @@ class Config(object):
         'http://0.0.0.0:4000',
         'http://localhost:4000',
     ]
+    DATA_CONSUMER_SERVICE_ADDRESS = 'DATA_CONSUMER_SERVICE_ADDRESS:6000'
 
 
 class ProdConfig(Config):

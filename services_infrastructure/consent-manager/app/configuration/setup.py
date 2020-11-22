@@ -9,6 +9,7 @@ from werkzeug.exceptions import HTTPException
 
 from app.views.data_owner_views import blueprint as data_owners_blueprint
 from app.views.data_set_views import blueprint as data_sets_blueprint
+from app.views.policy_views import blueprint as policy_blueprint
 from app.views.data_obligations_views import \
     blueprint as data_obligations_blueprint
 from app.views.data_permissions_views import \
@@ -64,6 +65,7 @@ def register_blueprints(app) -> None:
     app.register_blueprint(data_providers_blueprint)
     app.register_blueprint(data_obligations_blueprint)
     app.register_blueprint(data_permissions_blueprint)
+    app.register_blueprint(policy_blueprint)
 
 
 def configure_logging() -> None:

@@ -3,14 +3,12 @@ from enum import Enum
 from datetime import timedelta
 from pathlib import Path
 from app.configuration.constants import DATABASE_HOST, DATABASE_NAME, \
-    DATABASE_TYPE, DATABASE_PASSWORD, DATABASE_USERNAME, AWS_S3_ACCESS_KEY, \
-    AWS_S3_SECRET, AWS_S3_IMAGES_BUCKET, EMAIL_SECRET_SALT, \
-    APP_SECRET_KEY, EMAIL_SECRET_KEY, USER_MANAGER_SERVICE_ADDRESS, \
-    ORGANIZATION_SERVICE_ADDRESS, AWS_S3_IMAGES_BUCKET_FOLDER
+    DATABASE_TYPE, DATABASE_PASSWORD, DATABASE_USERNAME
 from app.exceptions import OperationalException
 
 BASE_DIR = str(Path(__file__).parent.parent.parent)
 PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
+POLICIES_DIR = os.path.join(BASE_DIR, 'policies')
 
 
 class Environment(Enum):
@@ -42,7 +40,6 @@ class Environment(Enum):
                         value
                     )
                 )
-
         else:
             raise OperationalException(
                 "Could not convert non string value to a data base type"
@@ -66,9 +63,6 @@ class Environment(Enum):
 class Config(object):
     """Base configuration."""
     LOG_LEVEL = 'INFO'
-    SECRET_KEY = os.environ.get(APP_SECRET_KEY, 'secret_key')
-    EMAIL_SECRET_KEY = os.environ.get(EMAIL_SECRET_KEY, 'email_secret_key')
-    EMAIL_SECRET_SALT = os.environ.get(EMAIL_SECRET_SALT, 'email_secret_salt')
     APP_DIR = os.path.abspath(os.path.dirname(__file__))
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
     DEBUG_TB_INTERCEPT_REDIRECTS = False
@@ -101,12 +95,6 @@ class ProdConfig(Config):
         'DATABASE_USERNAME': os.getenv(DATABASE_USERNAME),
         'DATABASE_DIRECTORY_PATH': BASE_DIR
     }
-    USER_MANAGER_SERVICE_ADDRESS = os.environ.get(USER_MANAGER_SERVICE_ADDRESS)
-    ORGANIZATION_SERVICE_ADDRESS = os.environ.get(ORGANIZATION_SERVICE_ADDRESS)
-    AWS_S3_ACCESS_KEY = os.environ.get(AWS_S3_ACCESS_KEY)
-    AWS_S3_SECRET = os.environ.get(AWS_S3_SECRET)
-    AWS_S3_IMAGES_BUCKET = os.environ.get(AWS_S3_IMAGES_BUCKET)
-    AWS_S3_IMAGES_BUCKET_FOLDER = os.environ.get(AWS_S3_IMAGES_BUCKET_FOLDER)
 
 
 class DevConfig(Config):
@@ -126,12 +114,6 @@ class DevConfig(Config):
         'DATABASE_USERNAME': os.getenv(DATABASE_USERNAME),
         'DATABASE_DIRECTORY_PATH': BASE_DIR
     }
-    USER_MANAGER_SERVICE_ADDRESS = os.environ.get(
-        USER_MANAGER_SERVICE_ADDRESS, '127.0.0.1:5000'
-    )
-    ORGANIZATION_SERVICE_ADDRESS = os.environ.get(
-        ORGANIZATION_SERVICE_ADDRESS, '127.0.0.1:7050'
-    )
 
 
 class TestConfig(Config):

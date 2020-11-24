@@ -48,25 +48,58 @@ def list_policies_data_sets(data_set_id):
         db.session.close()
 
 
+@blueprint.route(
+    '/policies/data-consumer/<string:data_consumer_id>/', methods=['GET']
+)
+def list_policies_data_consumer(data_consumer_id):
+    try:
+        policies = Policy.query\
+            .filter_by(data_consumer_id=data_consumer_id).all()
+        serializer = PolicySerializer()
+        return jsonify(serializer.dump(policies, many=True)), 200
+    finally:
+        db.session.close()
+
+
+@blueprint.route(
+    '/policies/data-provider/<string:data_provider_id>/', methods=['GET']
+)
+def list_policies_data_provider(data_provider_id):
+    try:
+        policies = Policy.query\
+            .filter_by(data_provider_id=data_provider_id).all()
+        serializer = PolicySerializer()
+        return jsonify(serializer.dump(policies, many=True)), 200
+    finally:
+        db.session.close()
+
+
 @blueprint.route('/policies/<string:policy_id>/', methods=['GET'])
 def retrieve_policy(policy_id):
     logger.info("list_organization_algorithms service call")
-    policy = Policy.query.filter_by(id=policy_id).first_or_404(
-        "Policy not found"
-    )
 
-    return send_file(policy.policy_content_path), 200
+    try:
+        policy = Policy.query.filter_by(id=policy_id).first_or_404(
+            "Policy not found"
+        )
+
+        return send_file(policy.policy_content_path), 200
+    finally:
+        db.session.close()
 
 
 @blueprint.route('/policies/<string:policy_id>/', methods=['DELETE'])
 def delete_policy(policy_id):
     logger.info("delete_policy service call")
 
-    policy = Policy.query.filter_by(id=policy_id).first_or_404(
-        "Policy not found"
-    )
-    policy_content_path = policy.policy_content_path
-    os.remove(policy_content_path)
-    policy.delete()
-    db.session.commit()
-    return '', 204
+    try:
+        policy = Policy.query.filter_by(id=policy_id).first_or_404(
+            "Policy not found"
+        )
+        policy_content_path = policy.policy_content_path
+        os.remove(policy_content_path)
+        policy.delete()
+        db.session.commit()
+        return '', 204
+    finally:
+        db.session.close()

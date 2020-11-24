@@ -11,6 +11,7 @@ from app.configuration.constants import DATABASE_HOST, DATABASE_NAME, \
 
 BASE_DIR = str(Path(__file__).parent.parent.parent)
 PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, os.pardir))
+POLICIES_DIR = os.path.join(BASE_DIR, 'static')
 
 
 class Environment(Enum):
@@ -81,7 +82,8 @@ class Config(object):
         'http://0.0.0.0:4000',
         'http://localhost:4000',
     ]
-    DATA_CONSUMER_SERVICE_ADDRESS = 'DATA_CONSUMER_SERVICE_ADDRESS:6000'
+    DATA_CONSUMER_SERVICE_ADDRESS = 'DATA_CONSUMER_SERVICE:6000'
+    POLICY_CATALOGUE_SERVICE_ADDRESS = 'POLICY_CATALOGUE_SERVICE:8000'
 
 
 class ProdConfig(Config):

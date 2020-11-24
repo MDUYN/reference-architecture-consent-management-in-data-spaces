@@ -1,4 +1,5 @@
 import logging
+import os
 import requests
 from flask import Blueprint, request, current_app, jsonify
 
@@ -6,7 +7,8 @@ from app.schemas.policy_request import PolicyRequestDeserializer, \
     PolicyRequestSerializer
 from app.extensions import db
 from app.models import DataSet, DataProvider, PolicyRequest
-from app.configuration.constants import DATA_CONSUMER_SERVICE_ADDRESS
+from app.configuration.constants import POLICY_CATALOGUE_SERVICES
+from app.configuration.settings import POLICIES_DIR
 
 blueprint = Blueprint('policies', __name__)
 logger = logging.getLogger(__name__)
@@ -50,7 +52,7 @@ def list_data_policy_requests(data_set_id):
             .filter_by(data_set_id=data_set_id)\
             .all()
         serializer = PolicyRequestSerializer()
-        return jsonify(serializer.dump(policy_requests)), 200
+        return jsonify(serializer.dump(policy_requests, many=True)), 200
     finally:
         db.session.close()
 
@@ -66,13 +68,25 @@ def accept_data_policy_requests(policy_request_id):
             .filter_by(id=policy_request_id)\
             .first_or_404("policy_request_not_found")
 
+        data_set = DataSet.query\
+            .filter_by(id=policy_request.data_set_id)\
+            .first_or_404("Data set not found")
+
+        data = {
+            "policy": (open(
+                POLICIES_DIR + os.path.sep + "sample_policy.json", 'rb'
+            ),
+                       'sample_policy.json')
+        }
+
         requests.post(
-            "/policies/data-provider/{}/data-set/{}/data-consumer/{}".format(
-                current_app.config[DATA_CONSUMER_SERVICE_ADDRESS],
-                policy_request.data_provider.id,
-                policy_request.data_set.id,
-                policy_request.data_set.data_provider.id
-            )
+            "{}/policies/data-provider/{}/data-set/{}/data-consumer/{}".format(
+                current_app.config[POLICY_CATALOGUE_SERVICES],
+                data_set.data_provider.id,
+                data_set.id,
+                policy_request.data_consumer_id
+            ),
+            files=data
         )
         return "Policy request accepted", 200
     finally:

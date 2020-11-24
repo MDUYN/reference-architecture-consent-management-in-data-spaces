@@ -1,8 +1,15 @@
 # Reference Architecture Consent Management in Data Spaces
 
-**TNO uses these applications to show how consent management can be applied in a data space**. 
+**This project was part of a Master Thesis project for the UvA Software Engineering Computer Science Master degree executed at TNO**. 
+
 This application works on any Kubernetes cluster (such as a local one), as well as Cloud based
 Kubernetes Engines. 
+
+## Current Functionality
+| Service | Functionality  |
+| [consent-manager](./services_infrastructure/consent-manager) | REST Api that functions as a consent manager. |
+| [data-provider](./services_infrastructure/data-provider) | python | REST Api that functions as a data provider. |
+| [frontend](./services_infrastructure/frontend) | javascript | Exposes an HTTP server to serve the website. |
 
 
 ## Service Architecture
@@ -11,11 +18,34 @@ Kubernetes Engines.
 languages that talk to each other over REST.
 
 
-| Service | language| Description  |
-| ---------------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| [consent-manager](./services_infrastructure/consent-manager) | python | REST Api that functions as a consent manager. |
-| [data-provider](./services_infrastructure/data-provider) | python | REST Api that functions as a data provider. |
-| [frontend](./services_infrastructure/frontend) | javascript | Exposes an HTTP server to serve the website. |
+
+## Current Functionality
+### Data Provider
+* Registration of data sets
+* Registration of data owners
+* Listing of data sets
+* Listing of data owners
+* Registration of data sets and data owners at a consent manager
+
+### Consent Manager
+* Registration of data sets
+* Registration of data owners
+* Registration of data providers
+* Definition of data permissions
+* Definition of data obligations
+* Linking of permissions and obligations with data sets
+* Registering policies at the policy catalogue
+
+### Policy Catalogue
+* Registration of policies
+* Listing of policies
+* Deleting of policies
+* Retrieving of policies (the policy content)
+
+### Policy Broker
+* Registration of consent managers
+* Registration of data categories belonging to consent managers
+* Registration of data permissions and obligations of consent managers
 
 
 ## Features

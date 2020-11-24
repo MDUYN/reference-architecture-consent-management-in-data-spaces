@@ -1,11 +1,12 @@
 import json
 from uuid import uuid4
 from tests import TestBase, random_string
+from tests.resources import AppTestBase
 from app.models import DataOwner, DataPermission, DataCategory
 from app.extensions import db
 
 
-class TestDataPermissionsCreation(TestBase):
+class TestDataPermissionsCreation(AppTestBase):
 
     def setUp(self) -> None:
         super(TestDataPermissionsCreation, self).setUp()

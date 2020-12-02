@@ -1,23 +1,14 @@
 # Reference Architecture Consent Management in Data Spaces
 
-**This project was part of a Master Thesis project for the UvA Software Engineering Computer Science Master degree executed at TNO**. 
+**This project was part of my Master Thesis project for the UvA Software Engineering Computer Science Master degree executed at TNO**. 
 
 This application works on any Kubernetes cluster (such as a local one), as well as Cloud based
 Kubernetes Engines. 
-
-## Current Functionality
-| Service | Functionality  |
-| [consent-manager](./services_infrastructure/consent-manager) | REST Api that functions as a consent manager. |
-| [data-provider](./services_infrastructure/data-provider) | python | REST Api that functions as a data provider. |
-| [frontend](./services_infrastructure/frontend) | javascript | Exposes an HTTP server to serve the website. |
-
 
 ## Service Architecture
 
 **The reference architecture** is composed of many components (micro-services) written in different
 languages that talk to each other over REST.
-
-
 
 ## Current Functionality
 ### Data Provider
